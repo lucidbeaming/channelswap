@@ -6,3 +6,4 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 - Relicensed from GPL-3.0 to MIT; earlier releases keep GPL-3.0 (#1)
+- `.gitignore`: macOS/editor files, env files, and the `input/` and `output/` example folders (#3)

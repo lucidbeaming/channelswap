@@ -205,3 +205,19 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+*.sublime-workspace
+.idea/
+
+# env / secrets
+.env.*
+!.env.example
+
+# Image folders used in the README examples (swap.py input/ output/)
+input/
+output/
