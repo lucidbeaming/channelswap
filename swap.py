@@ -108,10 +108,12 @@ def split_into_sections(image_path, section_width, section_height, bright=False,
     right_section = img.crop(right_box).resize((section_width, section_height), Image.Resampling.LANCZOS)
     
     if bright:
+        adjusted = []
         for section in [left_section, middle_section, right_section]:
             brightness_factor = 1.0 + (random.choice([-brightness_variation, brightness_variation]))
             enhancer = ImageEnhance.Brightness(section)
-            section = enhancer._enhance(brightness_factor)
+            adjusted.append(enhancer.enhance(brightness_factor))
+        left_section, middle_section, right_section = adjusted
     
     img.close()
     
