@@ -104,4 +104,4 @@ In cycle mode, three variations are created with different channel rotations, an
 
 ## License
 
-See LICENSE file for details.
+[MIT](LICENSE). Releases before this change were published under GPL-3.0, and those copies keep that license.
