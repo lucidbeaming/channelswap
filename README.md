@@ -1,5 +1,9 @@
 # ChannelSwap
 
+Create color-swapped images by recombining RGB channels across images.
+
+![Single mode: one wide landscape becomes a narrower image whose red, green and blue channels come from its left, middle and right sections](docs/images/single-mode.jpg)
+
 A Python script that creates artistic color-swapped images by combining RGB channels from different sections of images. The script can process images individually or in groups, extracting left, middle, and right sections and reassigning their color channels to create unique visual effects.
 
 ## Features
@@ -11,12 +15,17 @@ A Python script that creates artistic color-swapped images by combining RGB chan
 - **Brightness Variation**: Apply random brightness adjustments to sections
 - **Configurable Dimensions**: Customize section height and width ratio
 
+## Requirements
+
+- Python 3.7+
+- numpy >= 1.20.0
+- Pillow >= 9.1.0
+
 ## Installation
 
-1. Clone this repository or download the script
-2. Install dependencies:
-
 ```bash
+git clone https://github.com/lucidbeaming/channelswap.git
+cd channelswap
 pip install -r requirements.txt
 ```
 
@@ -44,6 +53,8 @@ python swap.py input/ output/ --mode single
 python swap.py input/ output/ --mode group
 ```
 
+![Group mode: three landscapes (dusk, valley, night) combine into one image with each channel taken from a different picture](docs/images/group-mode.jpg)
+
 **Random Mode**: Create random combinations from all images in the directory:
 
 ```bash
@@ -59,6 +70,12 @@ python swap.py input/ output/ --mode random
 - `--brightness-variation FACTOR`: Maximum brightness variation factor when using `--bright` (default: 0.15)
 - `--log-file PATH`: Specify path to log file (default: channel_swap.log)
 - `--debug`: Enable debug logging
+
+### Input and output
+
+- Input: every `.png`, `.jpg` and `.jpeg` file in the input directory. Wide images work best: each section is `--height` × `--width-ratio` wide after scaling, and on narrower images the sections shrink to a third of the width.
+- Output: PNG files named `single_<hash>.png` or `group_<hash>.png`. With `--cycle`, each output becomes three files with `_cycle0`, `_cycle1` and `_cycle2` suffixes.
+- The output directory is created if it doesn't exist.
 
 ### Examples
 
@@ -96,11 +113,10 @@ python swap.py input/ output/ --mode single --debug
 
 In cycle mode, three variations are created with different channel rotations, and in group mode, channels come from three different images.
 
-## Requirements
+## Related projects
 
-- Python 3.7+
-- numpy >= 1.20.0
-- Pillow >= 9.0.0
+- [p5-audio-visualizers](https://github.com/lucidbeaming/p5-audio-visualizers): generative visuals driven by sound
+- [mutant](https://github.com/lucidbeaming/mutant): desktop batch media converter built on ffmpeg and ImageMagick
 
 ## License
 
