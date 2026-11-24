@@ -2,6 +2,8 @@
 
 Create color-swapped images by recombining RGB channels across images.
 
+Documentation: [lucidbeaming.com/art/code/channelswap](https://lucidbeaming.com/art/code/channelswap)
+
 ![Single mode: one wide landscape becomes a narrower image whose red, green and blue channels come from its left, middle and right sections](docs/images/single-mode.jpg)
 
 A Python script that creates artistic color-swapped images by combining RGB channels from different sections of images. The script can process images individually or in groups, extracting left, middle, and right sections and reassigning their color channels to create unique visual effects.
